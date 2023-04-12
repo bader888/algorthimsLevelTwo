@@ -2,25 +2,20 @@
 #include <string>
 #include <cmath> // to use the round function
 using namespace std;
-
-enum enPrimeNotPrime
+enum enPrimNotPrime
 {
     Prime = 1,
     NotPrime = 2
 };
-
-enPrimeNotPrime CheckPrime(int number)
+enPrimNotPrime CheckPrime(int Number)
 {
-    int M = round(number / 2);
-
-    for (int counter = 0; counter <= M; counter++)
+    int M = round(Number / 2);
+    for (int Counter = 2; Counter <= M; Counter++)
     {
-        if (number % counter == 0)
-        {
-            return enPrimeNotPrime::NotPrime;
-        }
+        if (Number % Counter == 0)
+            return enPrimNotPrime::NotPrime;
     }
-    return enPrimeNotPrime::Prime;
+    return enPrimNotPrime::Prime;
 }
 
 int readPostieNumber(string messages)
@@ -45,7 +40,7 @@ void PrintPrimNumbre(int number)
 
     for (int i = 1; i <= number; i++)
     {
-        if (CheckPrime(i) == enPrimeNotPrime::Prime)
+        if (CheckPrime(i) == enPrimNotPrime::Prime)
         {
             cout << i << endl;
         }
